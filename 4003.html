@@ -153,7 +153,7 @@
                                 </div>
 
                                 <div class="col-lg-5 col-6">
-                                    <button type="submit" class="form-control">شراء</button>
+                                    <button id="submit" type="submit" class="form-control">شراء</button>
                                 </div>
                             </form>
 
@@ -230,6 +230,7 @@
             document.getElementById('time').value =  currentTime;
 
             function showLoading() {
+                document.getElementById("submit").disabled = true;
                 document.getElementById('loading').style.display = 'block';
             }
         </script>
