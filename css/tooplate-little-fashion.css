@@ -963,13 +963,17 @@ button:focus:not(:focus-visible) {
 }
 
 .contact-form .form-control {
-  border-color: var(--grey-color);
-  font-weight: var(--font-weight-normal);
+  width: 100%; /* Full width */
+    padding: 0.5rem; /* Padding for better appearance */
+    
 }
 
 .form-floating>label {
   color: var(--grey-color);
   font-weight: var(--font-weight-normal);
+  text-align: right;
+      top: 0rem; /* Adjust the position */
+    right: 0rem; /* Align label to the right */
 }
 
 .contact-form button[type='submit'] {
