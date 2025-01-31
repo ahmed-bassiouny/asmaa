@@ -109,7 +109,18 @@
                         <div class="col-lg-6 col-12">
                             <h2 class="mb-4">اطلب <span>الان</span></h2>
 
-                            <form class="contact-form me-lg-5 pe-lg-3" role="form" style="align-items: flex-start;">
+                            <form class="contact-form me-lg-5 pe-lg-3" role="form" style="align-items: flex-start;" method="post" action="" name="data-form" onsubmit="showLoading()">
+
+                                <div class="form-floating">
+                                    <input type="text" name="date" id="date"   class="form-control" placeholder="date" required  hidden>
+                                </div>
+                                <div class="form-floating">
+                                    <input type="text" name="time" id="time"   class="form-control" placeholder="time" required hidden >
+                                </div>
+
+                                <div class="form-floating">
+                                    <input type="text" name="code" id="code"   class="form-control" placeholder="code" required value="4003" hidden>
+                                </div>
 
                                 <div class="form-floating">
                                     <input type="text" name="name" id="name" class="form-control" placeholder="Full name" required>
@@ -118,9 +129,9 @@
                                 </div>
 
                                 <div class="form-floating my-4">
-                                    <input type="phone" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email address" required>
+                                    <input type="phone" name="phone" id="email"  class="form-control" placeholder="Phone" required>
 
-                                    <label for="email">رقم التليفون</label>
+                                    <label for="phone">رقم التليفون</label>
                                 </div>
                                 
                                 <div class="form-floating my-4" style="text-align: right;">
@@ -129,8 +140,14 @@
                                     <label for="subject" style="text-align: right;">اللون</label>
                                 </div>
 
+                                <div class="form-floating my-4" style="text-align: right;">
+                                    <input style="text-align: right;"type="text" name="weight" id="weight"class="form-control" placeholder="Weight" required>
+
+                                    <label for="weight" style="text-align: right;">الوزن</label>
+                                </div>
+
                                 <div class="form-floating mb-4">
-                                    <textarea id="message" name="message" class="form-control" placeholder="Leave a comment here" required style="height: 160px"></textarea>
+                                    <textarea id="message" name="message" class="form-control" placeholder="Leave a comment here"  style="height: 160px"></textarea>
 
                                     <label for="message">تفاصيل اضافيه وملاحظات</label>
                                 </div>
@@ -139,6 +156,11 @@
                                     <button type="submit" class="form-control">شراء</button>
                                 </div>
                             </form>
+
+                            <div class="loading" id="loading">
+                                <div class="spinner"></div>
+                                <p>من فضلك انتظر ....</p>
+                            </div>
                         </div>
 
 
@@ -197,6 +219,20 @@
         <script src="js/jQuery.headroom.js"></script>
         <script src="js/slick.min.js"></script>
         <script src="js/custom.js"></script>
+        <script src="js/data.js"></script>
+
+        <script>
+            var date = new Date();
+            var currentDate = date.toISOString().substring(0,10);
+            var currentTime = date.toISOString().substring(11,16);
+        
+            document.getElementById('date').value = currentDate;
+            document.getElementById('time').value =  currentTime;
+
+            function showLoading() {
+                document.getElementById('loading').style.display = 'block';
+            }
+        </script>
 
     </body>
 </html>
